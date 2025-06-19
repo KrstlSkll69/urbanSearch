@@ -25,15 +25,13 @@ const urbandictionarylogo = "https://cdn.discordapp.com/emojis/13850843135901737
 
 export default definePlugin({
     name: "UrbanDictionary",
-
-    description: "Search for a word on Urban Dictionary via /urban slash command",
-
+    description: "Search for a word on Urban Dictionary via /urban command.",
     authors: [
         Devs.jewdev,
         { name: "krystalskullofficial", id: 929208515883569182n },
     ],
-
     dependencies: ["CommandsAPI"],
+
     settingsAboutComponent: () => <>
         <Forms.FormText className="vc-plugin-urbanSearch-notice">
             Enabling this plugin allows Urban-Dictionary too bypass Vencord's CSP Restrictions.
@@ -41,7 +39,6 @@ export default definePlugin({
     </>,
 
     settings,
-
     commands: [
         {
             name: "urban",
