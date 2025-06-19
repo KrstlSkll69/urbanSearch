@@ -4,11 +4,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import "./style.css";
+
 import { ApplicationCommandOptionType, sendBotMessage } from "@api/Commands";
 import { ApplicationCommandInputType } from "@api/Commands/types";
 import { definePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
+import { Forms } from "@webpack/common";
 
 const settings = definePluginSettings({
     resultsAmount: {
@@ -18,12 +21,27 @@ const settings = definePluginSettings({
     }
 });
 
+const urbandictionarylogo = "https://cdn.discordapp.com/emojis/1385084313590173799.png";
+
 export default definePlugin({
     name: "UrbanDictionary",
+
     description: "Search for a word on Urban Dictionary via /urban slash command",
-    authors: [Devs.jewdev],
+
+    authors: [
+        Devs.jewdev,
+        { name: "krystalskullofficial", id: 929208515883569182n },
+    ],
+
     dependencies: ["CommandsAPI"],
+    settingsAboutComponent: () => <>
+        <Forms.FormText className="vc-plugin-urbanSearch-notice">
+            Enabling this plugin allows Urban-Dictionary too bypass Vencord's CSP Restrictions.
+        </Forms.FormText>
+    </>,
+
     settings,
+
     commands: [
         {
             name: "urban",
@@ -77,7 +95,7 @@ export default definePlugin({
                                     },
                                 ],
                                 color: 0xFF9900,
-                                footer: { text: `👍 ${definition.thumbs_up.toString()} | 👎 ${definition.thumbs_down.toString()}`, icon_url: "https://www.urbandictionary.com/favicon.ico" },
+                                footer: { text: `👍 ${definition.thumbs_up.toString()} | 👎 ${definition.thumbs_down.toString()}`, icon_url: urbandictionarylogo },
                                 timestamp: new Date(definition.written_on).toISOString(),
                             },
                         ] as any,
