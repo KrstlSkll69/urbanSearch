@@ -4,9 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { ConnectSrc, CspPolicies, ImageSrc } from "@main/csp";
+import { CspPolicies, ImageSrc } from "@main/csp";
 
+// ImageSrc contains ConnectSrc so we will just import the one and use both
 CspPolicies["api.urbandictionary.com/"] = ImageSrc;
-CspPolicies["api.urbandictionary.com/"] = ConnectSrc;
 CspPolicies["urbandictionary.com/"] = ImageSrc;
-CspPolicies["urbandictionary.com/"] = ConnectSrc;
