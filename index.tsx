@@ -34,7 +34,7 @@ export default definePlugin({
 
     settingsAboutComponent: () => <>
         <Forms.FormText className="vc-plugin-urbanSearch-notice">
-            Enabling this plugin allows Urban-Dictionary too bypass Vencord's CSP Restrictions.
+            Enabling this plugin allows Urban-Dictionary to bypass Vencord's CSP Restrictions.
         </Forms.FormText>
     </>,
 
