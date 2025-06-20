@@ -4,7 +4,9 @@ Use /urban slash command to search for a definition for a word on [Urban Diction
 
 ## Preview
 
-![preview](https://cdn.nest.rip/uploads/a96ade4b-3ae5-4644-aea7-5e54c04e6d1f.png)
+![preview](https://cdn.nest.rip/uploads/a96ade4b-3ae5-4644-aea7-5e54c04e6d1f.png) </br>
+
+![](https://cdn.nest.rip/uploads/5aa2bab1-df31-4508-aaf0-df3eca11b957.png) </br>
 
 ## Usage
 

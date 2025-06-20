@@ -8,18 +8,10 @@ import "./style.css";
 
 import { ApplicationCommandOptionType, sendBotMessage } from "@api/Commands";
 import { ApplicationCommandInputType } from "@api/Commands/types";
-import { definePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
-import definePlugin, { OptionType } from "@utils/types";
+import definePlugin from "@utils/types";
 import { Forms } from "@webpack/common";
 
-const settings = definePluginSettings({
-    resultsAmount: {
-        type: OptionType.NUMBER,
-        description: "The amount of results you want to get (more gives better results, but is slower)",
-        default: 10
-    }
-});
 
 const urbandictionarylogo = "https://cdn.discordapp.com/emojis/1385084313590173799.png";
 
@@ -34,11 +26,10 @@ export default definePlugin({
 
     settingsAboutComponent: () => <>
         <Forms.FormText className="vc-plugin-urbanSearch-notice">
-            Enabling this plugin allows Urban-Dictionary to bypass Vencord's CSP restrictions.
+            Enabling this plugin allows Urban-Dictionary to bypass Vencord's CSP Restrictions.
         </Forms.FormText>
     </>,
 
-    settings,
     commands: [
         {
             name: "urban",
@@ -55,7 +46,7 @@ export default definePlugin({
             execute: async (args, ctx) => {
                 try {
                     const query: string = encodeURIComponent(args[0].value);
-                    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}&per_page=${settings.store.resultsAmount}`).then(response => response.json());
+                    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`).then(response => response.json());
 
                     if (!list.length)
                         return void sendBotMessage(ctx.channel.id, { content: "No results found." });
